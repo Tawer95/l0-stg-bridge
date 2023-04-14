@@ -7,8 +7,8 @@ from web3 import Web3
 SLIPPAGE = 5
 
 # RPCs
-arbitrum_rpc_url = 'https://arb-mainnet.g.alchemy.com/v2/jAfYxbp_CBpbmnH_GAYc7sAMTay0BRmq'
-optimism_rpc_url = 'https://opt-mainnet.g.alchemy.com/v2/IN239nn0VgHAAXFAqBVNnritXkXm-EK2'
+arbitrum_rpc_url = 'YOUR RPC'
+optimism_rpc_url = 'YOUR RPC
 
 arbitrum_w3 = Web3(Web3.HTTPProvider(arbitrum_rpc_url))
 optimism_w3 = Web3(Web3.HTTPProvider(optimism_rpc_url))
@@ -22,8 +22,8 @@ stargate_arbitrum_eth_address = arbitrum_w3.to_checksum_address('0xbf22f0f184bCc
 stargate_optimism_eth_address = optimism_w3.to_checksum_address('0xB49c4e680174E331CB0A7fF3Ab58afC9738d5F8b')
 
 # ABIs
-router_abi = json.load(open('D:\\pet-project\\education\\l0-stg-bridge\\abis\\router_abi.json'))
-router_eth_abi = json.load(open('D:\\pet-project\\education\\l0-stg-bridge\\abis\\router_eth_abi.json'))
+router_abi = json.load(open('../abis/router_abi.json'))
+router_eth_abi = json.load(open('../abis/router_eth_abi.json'))
 
 # Init contracts
 stargate_arbitrum_router_contract = arbitrum_w3.eth.contract(address=stargate_arbitrum_address, abi=router_abi)
