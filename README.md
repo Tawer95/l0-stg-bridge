@@ -1,36 +1,38 @@
-# Stargate Bridge Helper for multiaccounts 
+# Stargate Bridge Helper под мультиаккаунты
+## Скрипт бриджит через Stargate.finance
 
-## Script to bridge on Stargate.finance
+### Вы можете бриджить ETH между arbitrum и optimism, а также USDC между polygon и fantom 
 
-### You can bridge ETH between arbitrum to optimism, and USDC between polygon and fantom 
-
-Script will loop through wallet and transfer ETH or USDC from the network with from the bigger balance, wait for   
- minutes and loop once again
+Скрипт запустит цикл по кошелькам и переведет ETH или USDC из сети с большим балансом, подождет в течение   
+"х" минут и повторит цикл еще раз.
 ---
-## Before start ##
+## Перед стартом ##
 
 
-1. Install python 3.10+
-2. Clone repository
-3. Install required packages
+1. Установить python 3.10+
+2. Скачать репозиторий на рабочую машину
+3. Установить зависимости командой
 ```commandline
     pip install -r requirements.txt
 ```
 
-4a. Fund your wallets with ETH on arbitrum or optimism if you want to bridget ETH  
-4b. Fund your wallets with USDC on fantom or polygon and a bit of matic/fantom for commission if you want to bridge USDC.
+4a. На кошельках нужно как минимум 0.1 ETH для бриджа между arbitrum и optimism и наоборот
+4b. На кошельках нужно как минимум 10 USDC для бриджа между polygon и fantom и наоборот, а также средства на газ в сети polygon и fantom
+5. В папке bridge в файле в переменных arbitrum_rpc_url и optimism_rpc_url ставим свои RPC, которые можно взять на chainlist.org, либо свои кастомные, чтобы не лагало. Оптимизм на публичных RPC лагает, скрипт может упасть. Если ставите публичную RPC, то следите, какие кошельки сделали транзы, а потом удаляйте приватники из keys.txt, чтобы они снова не прогоняли их.
+6. Вставляем в файл keys.txt свои приватники, каждый с новой строки, в конце не должно быть пустых строк.
+7. В файлах 
 
 ---
-## Usage ##
+## Как использовать ##
 
-For using ETH bridge:
+Для ETH бриджа:
 
   ```
   python use_eth_bridge.py
   ```
 
 
-For using USDC bridge:
+Для USDC бриджа:
 
   ```
   python use_usdc_bridge.py
