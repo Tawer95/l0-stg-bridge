@@ -8,11 +8,13 @@ from bridge.eth_bridge import swap_eth_arbitrum_optimism, swap_eth_optimism_arbi
 def main(tr):
     with open('keys.txt', 'r') as keys_file:
         accounts = [Account.from_key(line.replace("\n", "")) for line in keys_file.readlines()]
-        count = 0
+        count = 0 # what a cycle now
         for _ in range(0, tr):
             count += 1
             cprint(f'\n=============== start :  {count} round ===============', 'white')
+            number = 0 # what a wallet now
             for account in accounts:
+                number += 1
                 cprint(f'\n=============== start : {account.address} wallet ===============', 'white')
 
                 arbitrum_balance = get_balance_eth_arbitrum(account.address)
